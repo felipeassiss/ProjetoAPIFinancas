@@ -149,7 +149,7 @@ const Auth = ({ onLogin }) => {
           <form onSubmit={e => { e.preventDefault(); handleAuth(); }} className="flex flex-col">
             {isRegister && (
               <InputGroup
-                label="Nome completo"
+                label="Nome"
                 placeholder="Seu nome"
                 darkTheme
                 value={authData.name}
