@@ -225,14 +225,14 @@ const Transactions = ({ transactions, onAddTransaction, onDeleteTransaction, use
         <div className="flex flex-col gap-3">
           {transactions.length === 0 && (
             <div
-              className="flex flex-col items-center justify-center mt-20 animate-in fade-in duration-700"
-              style={{ color: 'rgba(255,255,255,0.15)' }}
+              className="glass-green flex flex-col items-center justify-center py-20 rounded-2xl animate-in fade-in duration-700 mt-20"
+              style={{ color: 'rgba(255,255,255,0.4)' }}
             >
               <div
                 className="w-16 h-16 rounded-3xl flex items-center justify-center mb-4"
-                style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                style={{ background: 'rgba(0,200,83,0.1)', border: '1px solid rgba(0,200,83,0.2)' }}
               >
-                <ArrowLeftRight size={26} style={{ opacity: 0.4 }} />
+                <ArrowLeftRight size={26} style={{ color: 'rgba(0,200,83,0.5)' }} />
               </div>
               <p className="text-sm" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                 Nenhuma transação ainda.

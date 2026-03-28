@@ -93,7 +93,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, user, transactions = [] })
               onClick={() => setActiveTab(item.id)}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium w-full text-left transition-all duration-300 ${
                 isActive
-                  ? 'bg-[rgba(0,200,83,0.1)] text-white'
+                  ? 'bg-gradient-to-r from-[rgba(0,200,83,0.15)] to-[rgba(0,200,83,0.05)] border border-[rgba(0,200,83,0.2)] text-white'
                   : 'text-white/60 hover:text-white hover:bg-[rgba(255,255,255,0.03)]'
               }`}
             >
@@ -115,7 +115,7 @@ const Sidebar = ({ activeTab, setActiveTab, onLogout, user, transactions = [] })
           onClick={() => setActiveTab('perfil')}
           className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium w-full text-left transition-all duration-300 ${
             activeTab === 'perfil'
-              ? 'bg-[rgba(0,200,83,0.1)] text-white'
+              ? 'bg-gradient-to-r from-[rgba(0,200,83,0.15)] to-[rgba(0,200,83,0.05)] border border-[rgba(0,200,83,0.2)] text-white'
               : 'text-white/60 hover:text-white hover:bg-[rgba(255,255,255,0.03)]'
           }`}
         >

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { TrendingUp, TrendingDown, Clock, Check, ArrowUpRight } from 'lucide-react';
 import ExpensePieChart from '../components/charts/ExpensePieChart';
+import BalanceTrendChart from '../components/charts/BalanceTrendChart';
+import IncomeExpenseChart from '../components/charts/IncomeExpenseChart';
+import QuickStats from '../components/charts/QuickStats';
 import UserAvatar from '../components/ui/UserAvatar';
 import { formatDate, parseDate } from '../utils/formatters';
 
@@ -121,6 +124,12 @@ const Dashboard = ({ user, transactions, userCategories, reminders = [], onPayRe
       {/* ── Main grid ───────────────────────────────────────────── */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
 
+        {/* Quick Stats */}
+        <div className="col-span-1 md:col-span-3 animate-in fade-in duration-500">
+          <SectionLabel>Resumo Rápido</SectionLabel>
+          <QuickStats transactions={transactions} />
+        </div>
+
         {/* Hero balance card — desktop */}
         <div
           className="hidden md:flex flex-col justify-between card-hero p-6 rounded-2xl h-64 animate-in zoom-in-95 duration-500 delay-100"
@@ -205,8 +214,40 @@ const Dashboard = ({ user, transactions, userCategories, reminders = [], onPayRe
           </div>
         </div>
 
+        {/* Balance Trend Chart */}
+        <div
+          className="card-hero p-5 rounded-2xl h-auto md:h-64 flex flex-col animate-in zoom-in-95 duration-500 delay-300"
+          style={{ boxShadow: '0 1px 0 rgba(0,200,83,0.3) inset, 0 30px 80px rgba(0,0,0,0.5)' }}
+        >
+          <span
+            className="text-white font-semibold text-sm mb-3"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Tendência do Saldo
+          </span>
+          <div className="flex-1 flex items-center justify-center">
+            <BalanceTrendChart transactions={transactions} />
+          </div>
+        </div>
+
+        {/* Income vs Expense Chart */}
+        <div
+          className="card-hero p-5 rounded-2xl md:col-span-2 h-auto md:h-64 flex flex-col animate-in zoom-in-95 duration-500 delay-400"
+          style={{ boxShadow: '0 1px 0 rgba(0,200,83,0.3) inset, 0 30px 80px rgba(0,0,0,0.5)' }}
+        >
+          <span
+            className="text-white font-semibold text-sm mb-3"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Entradas vs Saídas por Semana
+          </span>
+          <div className="flex-1 flex items-center justify-center">
+            <IncomeExpenseChart transactions={transactions} />
+          </div>
+        </div>
+
         {/* Recent transactions */}
-        <div className="col-span-1 md:col-span-2 animate-in slide-in-from-bottom-8 duration-500 delay-300">
+        <div className="col-span-1 md:col-span-2 animate-in slide-in-from-bottom-8 duration-500 delay-500">
           <SectionLabel>Últimas movimentações</SectionLabel>
           <div className="flex flex-col gap-3">
             {transactions.length === 0 ? (
@@ -280,7 +321,7 @@ const Dashboard = ({ user, transactions, userCategories, reminders = [], onPayRe
         </div>
 
         {/* Reminders */}
-        <div className="col-span-1 animate-in slide-in-from-bottom-8 duration-500 delay-400">
+        <div className="col-span-1 animate-in slide-in-from-bottom-8 duration-500 delay-600">
           <SectionLabel>Contas Próximas</SectionLabel>
           <div className="flex flex-col gap-3">
             {sortedReminders.length === 0 ? (

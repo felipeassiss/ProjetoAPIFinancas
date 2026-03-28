@@ -74,7 +74,7 @@ const Planning = ({ goals, reminders, onAddGoal, onDeleteGoal, onDepositToGoal, 
                     <div className="glass-green p-6 rounded-2xl mb-8 max-w-2xl animate-in slide-in-from-top-8 fade-in"><h3 className="text-white font-bold mb-4">Definir nova meta</h3><div className="grid grid-cols-1 md:grid-cols-2 gap-4"><div className="md:col-span-2"><InputGroup label="Nome da Meta" placeholder="Ex: Computador Novo" darkTheme value={newGoal.description} onChange={e => setNewGoal({...newGoal, description: e.target.value})} /></div><InputGroup label="Valor Total (R$)" placeholder="Ex: 5000" type="number" darkTheme value={newGoal.total} onChange={e => setNewGoal({...newGoal, total: e.target.value})} /><InputGroup label="Valor Inicial (R$)" placeholder="Ex: 0" type="number" darkTheme value={newGoal.current} onChange={e => setNewGoal({...newGoal, current: e.target.value})} /></div><div className="mt-4 flex justify-end"><div className="w-full md:w-auto"><PrimaryButton label="Salvar Meta" onClick={handleCreateGoal} fullWidth={false} /></div></div></div>
                  )}
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {goals.length === 0 && !isCreatingGoal && <div className="col-span-full text-center py-20 text-gray-600 border-2 border-dashed border-gray-800 rounded-2xl animate-in fade-in">Você ainda não criou nenhuma meta.</div>}
+                    {goals.length === 0 && !isCreatingGoal && <div className="col-span-full text-center py-20 text-gray-400 glass-green rounded-2xl animate-in fade-in">Você ainda não criou nenhuma meta.</div>}
                     {goals.map((goal, idx) => {
                        const current = parseFloat(goal.valorAtual || 0);
                        const total = parseFloat(goal.valorMeta || 1);
@@ -105,7 +105,7 @@ const Planning = ({ goals, reminders, onAddGoal, onDeleteGoal, onDepositToGoal, 
                     </div>
                  )}
                  <div className="grid grid-cols-1 gap-3">
-                    {reminders.length === 0 && !isCreatingReminder && <div className="col-span-full text-center py-20 text-gray-600 border-2 border-dashed border-gray-800 rounded-2xl animate-in fade-in">Nenhuma conta a pagar registrada.</div>}
+                    {reminders.length === 0 && !isCreatingReminder && <div className="col-span-full text-center py-20 text-gray-400 glass-green rounded-2xl animate-in fade-in">Nenhuma conta a pagar registrada.</div>}
                     {reminders.map((rem, idx) => {
                        const today = new Date();
                        const dueDate = parseDate(rem.dataVencimento);
